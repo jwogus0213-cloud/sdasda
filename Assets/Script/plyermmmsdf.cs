@@ -10,10 +10,17 @@ public class plyermmmsdf : MonoBehaviour
     public float minZ = -14f;
     public float maxZ = 14f;
 
+    private PlayerHealth1 playerHealth;
+    private void Start()
+    {
+        playerHealth =GetComponent<PlayerHealth1>();
+    }
 
     // Update is called once per frame
     void Update()
     {
+        if (playerHealth != null && playerHealth.IsDead) return;
+
         float x = Input.GetAxisRaw("Horizontal");
         float z = Input.GetAxisRaw("Vertical");
 
